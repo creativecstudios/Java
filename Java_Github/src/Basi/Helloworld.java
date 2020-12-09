@@ -1,16 +1,11 @@
 package Basi;
 
-class World
-{
-	{
-		System.out.println("Helloworld");
-	}
-}
-public class Helloworld {
+
+public class Helloworld extends Print{
 
 	public static void main(String args[])
 	{
-		World ref = new World();
+		Print ref = new Print();
 		
 		
 	}
