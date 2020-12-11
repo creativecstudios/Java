@@ -16,11 +16,4 @@ public class Calculator {
 		}
 		retrun(sum/count);
 	}
-	
-	public static void main(String args[])
-	{
-		Calculator ref = new Calculator();
-		ref.average(2,2,4);
-		ref.average(2,4,6,8,2);
-	}
 }
