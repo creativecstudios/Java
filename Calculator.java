@@ -1,29 +1,26 @@
 package Basics;
 
 public class Calculator {
-
-	static int num1,num2,num3,num4,avg;
-	static int average(int number1,int number2, int number3)
+	private int average(int num1,int num2, int num3)
 	{
-		num1 = number1;
-		num2 = number2; 
-		num3 = number3;
-		avg = (num1+num2+num3)/3;
-		return avg;
+		return((num1+num2+num3)/3);
 	}
-	static int average (int number1,int number2,int number3,int number4)
+	private int average (int...num1)
 	{
-		num1 = number1;
-		num2 = number2; 
-		num3 = number3;
-		num4 = number4;
-		avg = (num1+num2+num3+num4)/4;
-		return avg;
+		int sum=0;
+		int count=0;
+		for(int i:num1)
+		{
+			sum=sum+i;
+			count++;
+		}
+		retrun(sum/count);
 	}
 	
 	public static void main(String args[])
 	{
-		System.out.println(average(2,4,3));
-		System.out.println(average(3,5,2,5));
+		Calculator ref = new Calculator();
+		ref.average(2,2,4);
+		ref.average(2,4,6,8,2);
 	}
 }
