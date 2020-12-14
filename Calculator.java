@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Calculator {
 	
-	int average(int num1,int num2, int num3)
+	protected int average(int num1,int num2, int num3)
 	{
 		int result = ((num1+num2+num3)/3);
 		System.out.println("The average of 3 num is "+ result);
 		return result;
 	}
 	//variable parameter
-    int average(int...num1)
+    protected int average(int...num1)
 	{
 		 int count=0;
 		 int sum=0;
@@ -24,65 +24,52 @@ public class Calculator {
 		System.out.println("The average of n numbers is "+result);
 		return(result);
 	}
-    int highestCommonFactor(int...inputs)
+    protected int highestCommonFactor(int...inputs)
 	{
-		//To store the input into the array
-		int input = 0;
-		int arr[] = new int[inputs.length];
-		for(int j: inputs)
-		{
-			arr[input] = j;
-			input++;
-		}
-		//Highest common factor
 		int result = 0;
-		for(int i=0; i<arr.length-1; i++)
+		for(int i=0; i<inputs.length-1; i++)
 		{
-			while(arr[i+1]>0)
+			while(inputs[i+1]>0)
 			{
-				int temp = arr[i+1];
-				arr[i+1]= arr[i]%arr[i+1];
-				arr[i]= temp;
-				result = arr[i];
+				int temp = inputs[i+1];
+				inputs[i+1]= inputs[i]%inputs[i+1];
+				inputs[i]= temp;
+				result = inputs[i];
 			}
-			arr[i+1]= result;
+			inputs[i+1]= result;
 		}
 		System.out.println("The Highest Common Factor is "+result);
 		return result;
 	}
-    int leastCommonMultiple(int...inputs)
+   protected int leastCommonMultiple(int...inputs)
     {
-    	int input=0;
-    	int arr[] = new int[inputs.length];
-    	for(int i: inputs)
+    	int max,min,x,lcm=0;
+    	for(int i=0; i<inputs.length; i++)
     	{
-    		arr[input] = i;
-    		input++;
-    	}
-    	Arrays.sort(arr);
-    	int length = arr.length;
-    	int max = arr[length-1];
-    	int min = arr[0];
-    	int lcm = 0;
-    	int dummy=0;
-    	//lcm
-    	for(int i=0; i<length-1; i++)
-		{
-    	while(true)
-    	{
-    		if(arr[i]%max == 0)
+    		for(int j=i+1; j<inputs.length-1; j++)
     		{
-    			lcm = max;
-    			break;
+    			if(inputs[i]>inputs[j])
+    			{
+    				max = inputs[i];
+    				min = inputs[j];
+    			}
+    			else
+    			{
+    				max = inputs[j];
+    				min = inputs[i];
+    			}
+    			for(int k=0; k<inputs.length; k++)
+    			{
+    				x = k*max;
+    				if(x%min==0)
+    				{
+    					lcm = x;
+    				}
+    			}
     		}
-    		++max;
-    		dummy = max;
-    		max = dummy;
     	}
-    	max= dummy;
-		}
-    	System.out.println("the lcm is "+max);
-    	return max;
+    	System.out.println("The Least Common Multiple is "+lcm);
+    	return lcm;
     }
 }
 
