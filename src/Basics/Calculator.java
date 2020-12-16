@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Calculator {
 	
-	protected int average(int num1,int num2, int num3)
+    protected int average(int num1,int num2, int num3)
 	{
 		int result = ((num1+num2+num3)/3);
 		System.out.println("The average of 3 num is "+ result);
@@ -13,7 +13,7 @@ public class Calculator {
 	//variable parameter
     protected int average(int...num1)
 	{
-		 int count=0;
+		int count=0;
 		 int sum=0;
 		for(int i:num1)
 		{
