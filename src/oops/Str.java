@@ -190,16 +190,6 @@ public class Str {
 			
 		}
 	}
-
-	//replace string
-	void replacing() {
-		String s = "A batman with ball";
-		if(s.contains("ball"))
-		{
-			s.replaceAll("ball", "bat");
-		}
-		
-	}
 }
 
 
